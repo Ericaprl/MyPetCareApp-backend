@@ -43,14 +43,16 @@ class App{
                 message: "Any other route",
             });
         });
-        console.log("Server routes working");
+        console.log("Server routes working just need to be conect it");
     }
 
     database(){
-        mongoose
+        console.log(" MongoDB is working" );
+      /*  mongoose
         .connect(
-    "mongodb+srv://ericadeape:1Bv56DHBeyPOSNxE@petcaredatabase.di0jmud.mongodb.net/?retryWrites=true&w=majority"        
-            , {
+    "mongodb+srv://ericadeape:password@petcaredatabase.di0jmud.mongodb.net/?retryWrites=true&w=majority"        
+           // , 
+            {
             
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -61,6 +63,7 @@ class App{
         .catch((error) => {
             console.error("Failed to connect to MongoDB:", error);
         });
+        */
     }
 
     routes(){
