@@ -5,11 +5,10 @@ const { compare } = require("bcryptjs");
 class SessionController {
 
   async create(request, response) {
+    try {
     const { username, password } = request.body;
 
-    const user = await User.findOne({
-      username
-    });
+    const user = await User.findOne({username});
     console.log(user);
 
     if (!user) {
@@ -33,8 +32,14 @@ class SessionController {
       token,
       user,
     });
-  }
 
+  }catch (error) {
+    console.error("Login error:", error);
+    return response.status(500).json({ error: "Login failed." });
+  }
 }
+}
+
+
 
 module.exports = new SessionController();

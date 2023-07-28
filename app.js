@@ -32,7 +32,7 @@ class App{
             });
         })
         
-        this.server.get("/search", (request, response) => {
+        this.server.get("/createEvent", (request, response) => {
             return response.json({
                 message: "Accessed the /search route",
             });
@@ -48,10 +48,9 @@ class App{
 
     database(){
         console.log(" MongoDB is working" );
-      /*  mongoose
+       mongoose
         .connect(
-    "mongodb+srv://ericadeape:password@petcaredatabase.di0jmud.mongodb.net/?retryWrites=true&w=majority"        
-           // , 
+    "mongodb+srv://ericadeape:1Bv56DHBeyPOSNxE@petcaredatabase.di0jmud.mongodb.net/?retryWrites=true&w=majority", 
             {
             
             useNewUrlParser: true,
@@ -63,7 +62,7 @@ class App{
         .catch((error) => {
             console.error("Failed to connect to MongoDB:", error);
         });
-        */
+        
     }
 
     routes(){

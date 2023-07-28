@@ -4,12 +4,9 @@ const bcrypt = require("bcryptjs");
 class UserController {
   async create(request, response) {
 
-    // testing to see if it working 
-    //const body = request.body;
-   // console.log(body);
 
     const { fname, lname, email, username, password } = request.body;
-
+    try {
     const paswdCrypt = await bcrypt.hash(password, 8);
 
     
@@ -20,13 +17,28 @@ class UserController {
       username,
       password: paswdCrypt,
     });
+    console.log("New user:", user);
+
     return response.json(user);
   }
+  catch (error) {
+    console.error("Error creating user:", error);
+    return response.status(500).json({ error: "Error creating user." });
+  }
+}
 
   // To create the list of users 
   async index(request, response) {
-    const users = await User.find();
-    return response.json(users);
+    try {
+      const users = await User.find();
+
+      console.log("List of user:", users);
+
+      return response.json(users);
+    } catch (error) {
+      console.error(error);
+      return response.status(500).json({ error: "Failed to fetch users" });
+    }
   }
 }
 
