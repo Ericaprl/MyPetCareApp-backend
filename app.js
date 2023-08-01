@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require ("cors");
+const MONGO_URI = process.env.MONGODB_URI;
 
-const port = process.env.PORT || 1717;
 class App{
     constructor(){
         this.server = express();
@@ -20,13 +20,38 @@ class App{
         this.server.use(express.json());
 
     }
-
+    serverRoutes(){
+        this.server.get("/users", (request, response) => {
+            return response.json({
+                message: "Accessed the user route",
+            });
+        })
+        
+        this.server.get("/chats", (request, response) => {
+            return response.json({
+                message: "Accessed the chat route",
+            });
+        })
+        
+        this.server.get("/mapSearch", (request, response) => {
+            return response.json({
+                message: "Accessed the /search route",
+            });
+        })
+        
+        this.server.get("*",(request, response) => {
+            return response.json({
+                message: "Any other route",
+            });
+        });
+        console.log("Server routes working");
+    }
     database(){
         console.log(" MongoDB is working" );
        mongoose
         .connect(
-    "mongodb+srv://ericadeape:1Bv56DHBeyPOSNxE@petcaredatabase.di0jmud.mongodb.net/?retryWrites=true&w=majority", 
-            {
+            MONGO_URI ,   
+                     {
             
             useNewUrlParser: true,
             useUnifiedTopology: true,
