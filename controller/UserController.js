@@ -7,6 +7,13 @@ class UserController {
 
     const { fname, lname, email, username, password } = request.body;
     try {
+
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return response
+          .status(400)
+          .json({ error: "Email address already in use." });
+      }
     const paswdCrypt = await bcrypt.hash(password, 8);
 
     
