@@ -39,7 +39,7 @@ class App{
             });
         })
         
-        this.server.get("*",(request, response) => {
+        this.server.get("/",(request, response) => {
             return response.json({
                 message: "Any other route",
             });
