@@ -19,33 +19,6 @@ class App{
 
     }
 
-    serverRoutes(){
-        this.server.get("/users", (request, response) => {
-            return response.json({
-                message: "Accessed the user route",
-            });
-        })
-        
-        this.server.get("/chat", (request, response) => {
-            return response.json({
-                message: "Accessed the chat route",
-            });
-        })
-        
-        this.server.get("/createEvent", (request, response) => {
-            return response.json({
-                message: "Accessed the /search route",
-            });
-        })
-        
-        this.server.get("*",(request, response) => {
-            return response.json({
-                message: "Any other route",
-            });
-        });
-        console.log("Server routes working just need to be conect it");
-    }
-
     database(){
         console.log(" MongoDB is working" );
        mongoose
