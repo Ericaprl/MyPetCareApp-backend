@@ -49,7 +49,7 @@ class ResetPasswordController {
         <br/>
         <br/>
         <br/>
-        Click <a href="http://localhost:3000/resetPassword/${token}">here</a> to reset your password.
+        Click <a href="https://mypetcareapp-frontend.onrender.com/resetPassword/${token}">here</a> to reset your password.
         <br/>
         <br/>
         <br/>
