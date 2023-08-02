@@ -1,7 +1,6 @@
 const { sign } = require("jsonwebtoken");
 const User = require("../schemas/User");
 const { compare } = require("bcryptjs");
-
 const JWT_SECRET = process.env.JWT_SECRET;
 class SessionController {
 

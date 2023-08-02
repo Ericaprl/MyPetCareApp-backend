@@ -12,7 +12,8 @@ class UserController {
       if (existingUser) {
         return response
           .status(400)
-          .json({ error: "Email address already in use." });
+          .json({ error: false,
+            message: "Email address already in use." });
       }
     const paswdCrypt = await bcrypt.hash(password, 8);
 

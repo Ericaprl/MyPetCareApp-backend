@@ -22,25 +22,25 @@ class App{
 
     }
     serverRoutes(){
-        this.server.get("/users", (request, response) => {
+        this.server.get("/user", (request, response) => {
             return response.json({
                 message: "Accessed the user route",
             });
         })
         
-        this.server.get("/chats", (request, response) => {
+        this.server.get("/chat", (request, response) => {
             return response.json({
                 message: "Accessed the chat route",
             });
         })
         
-        this.server.get("/mapSearch", (request, response) => {
+        this.server.get("/search", (request, response) => {
             return response.json({
                 message: "Accessed the /search route",
             });
         })
         
-        this.server.get("/",(request, response) => {
+        this.server.get("/*",(request, response) => {
             return response.json({
                 message: "Any other route",
             });
