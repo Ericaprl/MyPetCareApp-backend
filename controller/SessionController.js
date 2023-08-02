@@ -2,6 +2,7 @@ const { sign } = require("jsonwebtoken");
 const User = require("../schemas/User");
 const { compare } = require("bcryptjs");
 
+const JWT_SECRET = process.env.JWT_SECRET;
 class SessionController {
 
   async create(request, response) {
@@ -23,7 +24,7 @@ class SessionController {
         .json({ error: "Incorrect password or username!" });
     }
 
-    const token = sign({}, "d5c7506650943503c93fced3763c935b", {
+    const token = sign({}, JWT_SECRET, {
       subject: new String(user._id),
       expiresIn: "1y",
     });

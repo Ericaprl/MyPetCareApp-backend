@@ -15,6 +15,7 @@ class App{
 
 
     }
+
     middleware(){
         this.server.use(cors());
         this.server.use(express.json());
@@ -69,6 +70,8 @@ class App{
         // This is where we will be using our express router and setting up all of
     this.server.use(routes);
     }
+
+    
 
 }
 module.exports = new App().server;
