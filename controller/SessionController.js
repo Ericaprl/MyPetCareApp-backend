@@ -23,7 +23,7 @@ class SessionController {
         .json({ error: "Incorrect password or username!" });
     }
 
-    const token = sign({}, JWT_SECRET, {
+    const token = sign({}, process.env.JWT_SECRET, {
       subject: new String(user._id),
       expiresIn: "1y",
     });
